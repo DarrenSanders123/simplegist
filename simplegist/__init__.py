@@ -78,7 +78,7 @@ class Simplegist:
 		if 'public' in args:
 			self.public = args['public']
 		else:
-			self.public = 1
+			self.public = True
 
 		if 'content' in args:
 			self.content = args['content']
@@ -88,7 +88,7 @@ class Simplegist:
 		url = '/gists'
 
 		data = {"description": self.description,
-  				"public": self.public,
+  				"public": "true" if self.public else "false",
   				"files": {
     				self.gist_name: {
       				"content": self.content
