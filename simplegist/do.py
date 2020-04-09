@@ -1,6 +1,6 @@
 import json
 import requests
-from config import BASE_URL, GIST_URL
+from simplegist.config import BASE_URL, GIST_URL
 
 class Do:
 	def __init__(self, gist):
