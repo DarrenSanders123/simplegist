@@ -153,7 +153,7 @@ class Mygist:
 			raise Exception('Gist Name/ID must be provided')
 
 		if 'content' in args:
-			self.content = args['content']
+			content = args['content']
 		else:
 			raise Exception('Gist content can\'t be empty')
 
@@ -162,7 +162,7 @@ class Mygist:
 			data = {"description": self.description,
   				"files": {
     				self.gist_name: {
-      				"content": self.content
+      				"content": content
     				}
   				}
   		}
@@ -170,7 +170,7 @@ class Mygist:
 			data = {"description": self.description,
   				"files": {
     				self.gist_name: {
-      				"content": self.content
+      				"content": content
     				}
   				}
   			}
@@ -185,7 +185,7 @@ class Mygist:
 			if (r.status_code == 200):
 				r_text = json.loads(r.text)
 				response = {
-					'updated_content': self.content,
+					'updated_content': content,
 					'created_at': r.json()['created_at'],
 					'comments':r.json()['comments']
 				}
